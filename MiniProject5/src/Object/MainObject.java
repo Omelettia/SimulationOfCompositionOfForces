@@ -1,13 +1,14 @@
 package Object;
-import Forces.*;
+
 import Surface.*;
 
-public class MainObject extends Force {
+public class MainObject {
 	
 	
-	private double mass;
-	private double velocity;
-	private double acceleration;
+	protected double mass;
+	protected double velocity;
+	protected double acceleration;
+	protected double appliedForce;
 	
 	public MainObject() {
 		
@@ -42,7 +43,34 @@ public class MainObject extends Force {
 	public void setAcceleration(double acceleration) {
 		this.acceleration = acceleration;
 	}
-   
+	
+	public double caculateGravitationalForce() {
+		return this.mass*10;
+	}
+	public double caculateNormalForce() {
+		return this.caculateGravitationalForce();
+	}
+	public double caculateFrictionForce(Surface surface) {
+		return 0;
+	}
+
+	public double getAppliedForce() {
+		return appliedForce;
+	}
+
+	public void setAppliedForce(double appliedForce) {
+		this.appliedForce = appliedForce;
+	}
+	public double compositeVForce() {
+		return Math.abs(this.caculateGravitationalForce() - this.caculateNormalForce());
+	}
+	public double compositeHForce(Surface surface) {
+		return Math.abs(this.getAppliedForce() - this.caculateFrictionForce(surface));
+	}
+	public void applyCompositeForce(Surface surface) {
+		
+	}
+    
 	
 	
 	
