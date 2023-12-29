@@ -25,6 +25,15 @@ public class Surface {
 	public void setKineticFrictionCoefficient(double kineticFrictionCoefficient) {
 		this.kineticFrictionCoefficient = kineticFrictionCoefficient;
 	}
+	public void setFrictionCoefficient(double staticFrictionCoefficient, double kineticFrictionCoefficient ) {
+		if (staticFrictionCoefficient > kineticFrictionCoefficient) {
+			this.kineticFrictionCoefficient = kineticFrictionCoefficient;
+			this.staticFrictionCoefficient = staticFrictionCoefficient;
+		}
+		else {
+			System.out.println("Loi");
+		}
+	}
 	
 	
 
