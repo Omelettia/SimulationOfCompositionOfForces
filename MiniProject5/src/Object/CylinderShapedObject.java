@@ -9,8 +9,8 @@ public class CylinderShapedObject extends MainObject {
 	private double radius;
 	private double angularVelocity;
 
-	public CylinderShapedObject(double mass, double velocity, double acceleration, double radius, double angularVelocity) {
-		super(mass, velocity, acceleration);
+	public CylinderShapedObject(double mass,  double radius, double angularVelocity) {
+		super(mass);
 		// TODO Auto-generated constructor stub
 		this.radius = radius;
 		this.angularVelocity = angularVelocity;

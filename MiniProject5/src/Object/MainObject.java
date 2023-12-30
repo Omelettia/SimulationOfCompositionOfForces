@@ -14,10 +14,8 @@ public class MainObject {
 		
 	}
 	
-	public MainObject(double mass, double velocity, double acceleration) {
+	public MainObject(double mass) {
 		this.mass = mass;
-		this.velocity = velocity;
-		this.acceleration = acceleration;
 	}
 
 	public double getMass() {
