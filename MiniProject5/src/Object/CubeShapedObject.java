@@ -6,8 +6,8 @@ public class CubeShapedObject extends MainObject {
 	
 	private double sideLength;
 
-	public CubeShapedObject(double mass, double velocity, double acceleration, double sideLength) {
-		super(mass, velocity, acceleration);
+	public CubeShapedObject(double mass, double sideLength) {
+		super(mass);
 		
 		// TODO Auto-generated constructor stub
 		this.sideLength = sideLength;
