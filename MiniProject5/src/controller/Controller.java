@@ -1,4 +1,4 @@
-package view;
+package controller;
 
 import javafx.animation.*;
 import javafx.fxml.FXML;
@@ -12,9 +12,9 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Polygon;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import Object.CubeShapedObject;
-import Object.CylinderShapedObject;
-import Surface.Surface;
+import model.object.CubeShapedObject;
+import model.object.CylinderShapedObject;
+import model.surface.Surface;
 
 import java.net.URL;
 import java.util.ResourceBundle;

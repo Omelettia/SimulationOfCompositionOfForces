@@ -1,8 +1,6 @@
-package Object;
+package model.object;
 
-
-
-import Surface.Surface;
+import model.surface.Surface;
 
 public class CylinderShapedObject extends MainObject {
 	

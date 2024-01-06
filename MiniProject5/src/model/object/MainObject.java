@@ -1,6 +1,6 @@
-package Object;
+package model.object;
 
-import Surface.*;
+import model.surface.Surface;
 
 public class MainObject {
 	

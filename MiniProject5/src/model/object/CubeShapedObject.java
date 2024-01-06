@@ -1,6 +1,6 @@
-package Object;
+package model.object;
 
-import Surface.Surface;
+
 
 public class CubeShapedObject extends MainObject {
 	
