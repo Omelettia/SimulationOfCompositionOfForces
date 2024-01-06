@@ -1,0 +1,219 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Polygon?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.Controller">
+   <children>
+      <ImageView fx:id="Background" fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sky.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="road" fitHeight="69.0" fitWidth="1307.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/Car_Animation_Img/road.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane fx:id="Container" layoutY="7.0" prefHeight="400.0" prefWidth="600.0">
+         <right>
+            <VBox prefHeight="400.0" prefWidth="146.0" BorderPane.alignment="CENTER">
+               <children>
+                  <HBox prefHeight="26.0" prefWidth="138.0">
+                     <children>
+                        <CheckBox fx:id="forceButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="60.0" text=" Forces" textAlignment="RIGHT" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="10.0" prefHeight="25.0" prefWidth="118.0">
+                     <children>
+                        <CheckBox fx:id="sumOfForceButton" mnemonicParsing="false" prefHeight="25.0" text="Sum of  Forces" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="52.0" prefHeight="25.0" prefWidth="118.0">
+                     <children>
+                        <CheckBox fx:id="valueButton" mnemonicParsing="false" prefHeight="25.0" text="Values" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="80.0" prefHeight="25.0" prefWidth="118.0">
+                     <children>
+                        <CheckBox fx:id="massButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Masses" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="107.0" prefHeight="25.0" prefWidth="118.0">
+                     <children>
+                        <CheckBox fx:id="speedButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Speed" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="122.0" prefHeight="25.0" prefWidth="118.0">
+                     <children>
+                        <CheckBox fx:id="accelerationButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="108.0" text="Acceleration" textOverrun="WORD_ELLIPSIS" wrapText="true">
+                           <HBox.margin>
+                              <Insets left="10.0" />
+                           </HBox.margin>
+                        </CheckBox>
+                     </children>
+                  </HBox>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Friction" textAlignment="CENTER" wrappingWidth="122.47539901733398" />
+                  <HBox prefHeight="21.0" prefWidth="123.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="S" textAlignment="CENTER" wrappingWidth="11.97503662109375" />
+                        <Slider fx:id="staticFrictionSlider" prefHeight="14.0" prefWidth="88.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin></Slider>
+                        <TextField fx:id="staticFrictionTextField" maxHeight="15.0" minHeight="15.0" prefHeight="6.0" prefWidth="40.0" />
+                     </children>
+                  </HBox>
+                  <HBox layoutX="10.0" layoutY="180.0" prefHeight="21.0" prefWidth="123.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="K" textAlignment="CENTER" wrappingWidth="11.97503662109375" />
+                        <Slider fx:id="kineticFrictionSlider" prefHeight="14.0" prefWidth="88.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Slider>
+                        <TextField fx:id="kineticFrictionTextField" maxHeight="15.0" minHeight="15.0" prefHeight="6.0" prefWidth="40.0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="31.0" prefWidth="146.0">
+                     <children>
+                        <Button fx:id="pauseButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="▶">
+                           <font>
+                              <Font size="14.0" />
+                           </font>
+                        </Button>
+                        <Button fx:id="replayButton" mnemonicParsing="false" prefHeight="38.0" prefWidth="38.0" text="↺" translateX="50.0">
+                           <font>
+                              <Font name="System Bold" size="14.0" />
+                           </font>
+                        </Button>
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets />
+               </BorderPane.margin>
+            </VBox>
+         </right>
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: White;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="252.0" style="-fx-background-color: White;">
+                     <children>
+                        <Text fill="#4b1c1c" strokeType="OUTSIDE" strokeWidth="0.0" text="Objects" textAlignment="CENTER" wrappingWidth="255.18439865112305" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #1b0d84;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: White;">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied Force" textAlignment="CENTER" wrappingWidth="108.79296875" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Brown;">
+                           <children>
+                              <TextField fx:id="forceTextField" prefHeight="20.0" prefWidth="109.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Slider fx:id="forceSlider">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Slider>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </bottom></BorderPane>
+      <ImageView fx:id="object" fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="118.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../8e3f220c59c4f926ebb2e94000c86e13-1174630174.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cylinder" fitHeight="70.0" fitWidth="90.0" layoutX="38.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/5bce7d5c70a9d74a1ede4ab315aa42a1-wood-wagon-wheel-flat-477602131.png" />
+         </image>
+      </ImageView>
+      <ImageView fx:id="cube" fitHeight="70.0" fitWidth="90.0" layoutX="159.0" layoutY="330.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../../../../../Downloads/bd2d7a8d7a149c5-2866815457.png" />
+         </image>
+      </ImageView>
+      <Polygon fx:id="appliedForce" fill="DODGERBLUE" layoutX="83.0" layoutY="36.0" points="210.0, 160.0, 230.0, 160.0, 230.00001525878906, 165.38880920410156, 241.01556396484375, 155.0, 230.00001525878906, 144.9288787841797, 230.0, 150.0, 210.0, 150.0" scaleX="4.0" scaleY="2.0" scaleZ="-1.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fx:id="friction" fill="#e31fff" layoutX="-74.0" layoutY="38.0" points="210.0, 160.0, 230.0, 160.0, 230.00001525878906, 165.38880920410156, 241.01556396484375, 155.0, 230.00001525878906, 145.08352661132812, 230.0, 150.0, 210.0, 150.0" rotate="-180.0" scaleX="4.0" scaleY="2.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fx:id="normalForce" fill="#ff2150" layoutX="4.0" layoutY="111.0" points="210.0, 160.0, 230.0, 160.0, 230.00001525878906, 165.38880920410156, 241.01556396484375, 155.0, 230.00001525878906, 145.08352661132812, 230.0, 150.0, 210.0, 150.0" rotate="90.0" scaleX="3.0" scaleY="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fx:id="gravitationalForce" fill="#fffe21" layoutX="3.0" layoutY="-36.0" points="210.0, 160.0, 230.0, 160.0, 230.00001525878906, 165.38880920410156, 241.01556396484375, 155.0, 230.00001525878906, 145.08352661132812, 230.0, 150.0, 210.0, 150.0" rotate="-90.0" scaleX="3.0" scaleY="3.0" stroke="BLACK" strokeType="INSIDE" />
+      <Polygon fx:id="sumOfForce" fill="#1fff5f" layoutX="62.0" layoutY="-17.0" points="210.0, 160.0, 230.0, 160.0, 230.00001525878906, 165.38880920410156, 241.01556396484375, 155.0, 230.00001525878906, 144.9288787841797, 230.0, 150.0, 210.0, 150.0" scaleX="3.0" scaleY="2.0" stroke="BLACK" strokeType="INSIDE" />
+      <Text fx:id="frictionValue" layoutX="148.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="gravitationalForceValue" layoutX="216.0" layoutY="153.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="normalForceValue" layoutX="217.0" layoutY="244.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="appliedForceValue" layoutX="289.0" layoutY="196.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="sumOfForceValue" layoutX="288.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
+      <Text fx:id="objectMass" fill="#f7f7f7" layoutX="275.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0" text="50KG" wrappingWidth="49.33673095703125">
+         <font>
+            <Font size="14.0" />
+         </font>
+      </Text>
+      <HBox layoutX="30.0" layoutY="30.0" maxHeight="-Infinity" prefHeight="50.0" prefWidth="148.0">
+         <children>
+            <VBox fx:id="acceleration" prefHeight="200.0" prefWidth="70.0" style="-fx-background-color: Grey;">
+               <children>
+                  <Text fill="#faf5f5" strokeType="OUTSIDE" strokeWidth="0.0" text="Acceleration" />
+                  <VBox prefHeight="33.0" prefWidth="50.0" style="-fx-background-color: white;">
+                     <children>
+                        <Text fx:id="accelerationValue" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="75.73669052124023" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+            <VBox fx:id="speed" layoutX="10.0" layoutY="10.0" prefHeight="50.0" prefWidth="70.0" style="-fx-background-color: grey;">
+               <children>
+                  <Text fill="#fffbfb" strokeType="OUTSIDE" strokeWidth="0.0" text="Speed" textAlignment="CENTER" wrappingWidth="70.64690780639648" />
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: white;">
+                     <children>
+                        <Text fx:id="speedValue" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" textAlignment="CENTER" wrappingWidth="71.73675537109375" />
+                     </children>
+                  </VBox>
+               </children>
+            </VBox>
+         </children>
+         <opaqueInsets>
+            <Insets />
+         </opaqueInsets>
+      </HBox>
+   </children>
+</Pane>

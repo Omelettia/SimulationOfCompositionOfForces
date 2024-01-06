@@ -1,4 +1,4 @@
-package Surface;
+package model.surface;
 
 public class Surface {
 	
