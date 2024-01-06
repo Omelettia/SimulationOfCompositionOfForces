@@ -14,10 +14,9 @@ public class MainObject {
 		
 	}
 	
-	public MainObject(double mass, double velocity, double acceleration) {
+	public MainObject(double mass, double velocity) {
 		this.mass = mass;
 		this.velocity = velocity;
-		this.acceleration = acceleration;
 	}
 
 	public double getMass() {
@@ -36,23 +35,31 @@ public class MainObject {
 		this.velocity = velocity;
 	}
 
-	public double getAcceleration() {
-		return acceleration;
+	public double getAcceleration(Surface surface) {
+		return compositeHForce(surface)/mass;
 	}
 
-	public void setAcceleration(double acceleration) {
-		this.acceleration = acceleration;
-	}
 	
-	public double caculateGravitationalForce() {
+	public double calculateGravitationalForce() {
 		return this.mass*10;
 	}
-	public double caculateNormalForce() {
-		return this.caculateGravitationalForce();
+	public double calculateNormalForce() {
+		return this.calculateGravitationalForce();
 	}
-	public double caculateFrictionForce(Surface surface) {
-		return 0;
+	public double calculateFrictionForce(Surface surface) {
+	    double appliedForce = this.getAppliedForce();
+	    double normalForce = this.calculateNormalForce();
+	    
+	    double staticFrictionForce = normalForce * surface.getStaticFrictionCoefficient();
+	    
+	    if (Math.abs(appliedForce) <= Math.abs(staticFrictionForce)) {
+	        return appliedForce;
+	    } else {
+	        double kineticFrictionForce = normalForce * surface.getKineticFrictionCoefficient();
+	        return kineticFrictionForce * Math.signum(appliedForce);
+	    }
 	}
+
 
 	public double getAppliedForce() {
 		return appliedForce;
@@ -62,10 +69,10 @@ public class MainObject {
 		this.appliedForce = appliedForce;
 	}
 	public double compositeVForce() {
-		return Math.abs(this.caculateGravitationalForce() - this.caculateNormalForce());
+		return this.calculateGravitationalForce() - this.calculateNormalForce();
 	}
 	public double compositeHForce(Surface surface) {
-		return Math.abs(this.getAppliedForce() - this.caculateFrictionForce(surface));
+		return this.getAppliedForce() - this.calculateFrictionForce(surface);
 	}
 	public void applyCompositeForce(Surface surface) {
 		
