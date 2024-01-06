@@ -15,7 +15,7 @@ public class Animation extends Application {
 	    Parent root = loader.load();
 
 	    Scene scene = new Scene(root);
-	    stage.setTitle("Animation");
+	    stage.setTitle("Physics simulation");
 	    stage.setScene(scene);
 
 	    // Make the window not resizable

@@ -211,6 +211,11 @@ public class Controller implements Initializable {
         showSpeedVBox(speedButton.isSelected() && objectNotNull);
         showAccelerationVBox(accelerationButton.isSelected() && objectNotNull);
         updateTextValues();
+        updateForceText();
+        updateForceSlider();
+        updateTextValues();
+        updateFrictionText();
+        
     }
     
     private void updateTextValues() {
