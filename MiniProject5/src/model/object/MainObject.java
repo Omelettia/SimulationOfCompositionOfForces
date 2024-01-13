@@ -1,14 +1,20 @@
 package model.object;
 
-import model.surface.Surface;
+import java.util.ArrayList;
+import java.util.List;
 
-public class MainObject {
-	
-	
+import model.Surface;
+import model.MovingObject.Observer;
+
+public abstract class MainObject {
+
 	protected double mass;
 	protected double velocity;
 	protected double acceleration;
 	protected double appliedForce;
+	private List<Observer> observers = new ArrayList<>();
+	//Use observer to update information when there is change
+	protected static final double A = 0.1;
 	
 	public MainObject() {
 		
@@ -18,6 +24,7 @@ public class MainObject {
 		this.mass = mass;
 		this.velocity = velocity;
 	}
+    
 
 	public double getMass() {
 		return mass;
@@ -25,6 +32,7 @@ public class MainObject {
 
 	public void setMass(double mass) {
 		this.mass = mass;
+		notifyObservers();
 	}
 
 	public double getVelocity() {
@@ -33,12 +41,25 @@ public class MainObject {
 
 	public void setVelocity(double velocity) {
 		this.velocity = velocity;
+		notifyObservers();
+	}
+	
+	public void updateMovement(Surface surface)
+	{
+		setVelocity(getVelocity() + getAcceleration(surface)*A);
 	}
 
 	public double getAcceleration(Surface surface) {
 		return compositeHForce(surface)/mass;
 	}
 
+	public double getAngularVelocity() {
+		return 0;
+	}
+	
+	public double calculateAngularAcceleration(Surface surface) {
+        return 0;
+    }
 	
 	public double calculateGravitationalForce() {
 		return this.mass*10;
@@ -51,11 +72,12 @@ public class MainObject {
 	    double normalForce = this.calculateNormalForce();
 	    
 	    double staticFrictionForce = normalForce * surface.getStaticFrictionCoefficient();
-	    
-	    if (Math.abs(appliedForce) <= Math.abs(staticFrictionForce)) {
+	    double kineticFrictionForce = normalForce * surface.getKineticFrictionCoefficient();
+	    if (Math.abs(appliedForce) <= Math.abs(staticFrictionForce)) 
+	     {
 	        return appliedForce;
-	    } else {
-	        double kineticFrictionForce = normalForce * surface.getKineticFrictionCoefficient();
+	     }  
+	    else {    
 	        return kineticFrictionForce * Math.signum(appliedForce);
 	    }
 	}
@@ -67,6 +89,7 @@ public class MainObject {
 
 	public void setAppliedForce(double appliedForce) {
 		this.appliedForce = appliedForce;
+		notifyObservers();
 	}
 	public double compositeVForce() {
 		return this.calculateGravitationalForce() - this.calculateNormalForce();
@@ -74,21 +97,38 @@ public class MainObject {
 	public double compositeHForce(Surface surface) {
 		return this.getAppliedForce() - this.calculateFrictionForce(surface);
 	}
-	public void applyCompositeForce(Surface surface) {
-		
+	
+	public double getMaxWeight()
+	{
+		return 100;
 	}
-    
 	
 	
-	
-	
-	
-	
-	
-	
-	
-	
-	
-	
+	public abstract double getMaxDimension();
 
+    public abstract String getDimensionName();
+
+    public abstract double getDimension();
+
+    public abstract void setDimension(double dimension);
+    
+ // Method relating to observer
+    public void addObserver(Observer observer) {
+        observers.add(observer);
+    }
+
+    public void removeObserver(Observer observer) {
+        observers.remove(observer);
+    }
+
+    protected void notifyObservers() {
+        for (Observer observer : observers) {
+            observer.update();
+        }
+    }
+
+    // Observer interface
+    public interface Observer {
+        void update();
+    }
 }

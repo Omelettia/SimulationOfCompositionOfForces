@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Text?>
+
+<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ForceAndFrictionController">
+   <children>
+      <ImageView fitHeight="400.0" fitWidth="600.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../image/sky.jpg" />
+         </image>
+      </ImageView>
+      <BorderPane fx:id="Container" layoutY="7.0" pickOnBounds="false" prefHeight="400.0" prefWidth="600.0">
+         <bottom>
+            <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: White;" BorderPane.alignment="CENTER">
+               <children>
+                  <VBox prefHeight="100.0" prefWidth="252.0" style="-fx-background-color: White;">
+                     <children>
+                        <Text fill="#4b1c1c" strokeType="OUTSIDE" strokeWidth="0.0" text="Objects" textAlignment="CENTER" wrappingWidth="255.18439865112305" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" style="-fx-background-color: #1b0d84;" />
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: White;">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Applied Force" textAlignment="CENTER" wrappingWidth="108.79296875" />
+                        <VBox prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: Brown;">
+                           <children>
+                              <TextField fx:id="forceTextField" pickOnBounds="false" prefHeight="20.0" prefWidth="109.0">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </TextField>
+                              <Slider fx:id="forceSlider" pickOnBounds="false">
+                                 <VBox.margin>
+                                    <Insets top="10.0" />
+                                 </VBox.margin>
+                              </Slider>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </bottom>
+         <right>
+            <VBox prefWidth="146.0" BorderPane.alignment="CENTER">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="   Friction" textAlignment="CENTER" wrappingWidth="122.47539901733398" />
+                  <HBox prefHeight="21.0" prefWidth="123.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="S" textAlignment="CENTER" wrappingWidth="11.97503662109375" />
+                        <Slider fx:id="staticFrictionSlider" pickOnBounds="false" prefHeight="14.0" prefWidth="88.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Slider>
+                        <TextField fx:id="staticFrictionTextField" maxHeight="15.0" minHeight="15.0" pickOnBounds="false" prefHeight="6.0" prefWidth="40.0" />
+                     </children>
+                  </HBox>
+                  <HBox pickOnBounds="false" prefHeight="21.0" prefWidth="123.0">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="K" textAlignment="CENTER" wrappingWidth="11.97503662109375" />
+                        <Slider fx:id="kineticFrictionSlider" pickOnBounds="false" prefHeight="14.0" prefWidth="88.0">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </Slider>
+                        <TextField fx:id="kineticFrictionTextField" maxHeight="15.0" minHeight="15.0" pickOnBounds="false" prefHeight="6.0" prefWidth="40.0" />
+                     </children>
+                  </HBox>
+               </children>
+               <BorderPane.margin>
+                  <Insets top="145.0" />
+               </BorderPane.margin>
+            </VBox>
+         </right></BorderPane>
+   </children>
+</Pane>

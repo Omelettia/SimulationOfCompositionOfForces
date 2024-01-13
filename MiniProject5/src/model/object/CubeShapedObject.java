@@ -13,13 +13,29 @@ public class CubeShapedObject extends MainObject {
 		this.sideLength = sideLength;
 	}
 
-	public double getSideLength() {
+	public double getDimension() {
 		return sideLength;
 	}
-
-	public void setSideLength(double sideLength) {
+    
+	@Override
+	public void setDimension(double sideLength) {
 		this.sideLength = sideLength;
 	}
+
+	@Override
+	public String getDimensionName() {
+		// TODO Auto-generated method stub
+		return "sideLength";
+	}
+
+	@Override
+	public double getMaxDimension() {
+		// TODO Auto-generated method stub
+		return 100;
+	}
+
+	
+
 		
 	
 

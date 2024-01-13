@@ -1,6 +1,6 @@
 package model.object;
 
-import model.surface.Surface;
+import model.Surface;
 
 public class CylinderShapedObject extends MainObject {
 	
@@ -14,43 +14,65 @@ public class CylinderShapedObject extends MainObject {
 		this.angularVelocity = angularVelocity;
 	}
 	
-	public double getRadius() {
-		return radius;
+	@Override
+	public void updateMovement(Surface surface)
+	{   
+		setVelocity(getVelocity() + getAcceleration(surface)*A);
+		setAngularVelocity(getAngularVelocity() + calculateAngularAcceleration(surface)*A);
 	}
-
-	public void setRadius(double radius) {
-		this.radius = radius;
-	}
-
+	
+	@Override
 	public double getAngularVelocity() {
 		return angularVelocity;
 	}
 
 	public void setAngularVelocity(double angularVelocity) {
 		this.angularVelocity = angularVelocity;
+		notifyObservers();
 	}
 	@Override
 	public double calculateFrictionForce(Surface surface) {
 	    double appliedForce = this.getAppliedForce();
 	    double normalForce = this.calculateNormalForce();
 	    double staticFrictionLimit = 3 * normalForce * surface.getStaticFrictionCoefficient();
-
+	    double kineticFrictionForce = normalForce * surface.getKineticFrictionCoefficient();
 	    if (Math.abs(appliedForce) <= Math.abs(staticFrictionLimit)) {
 	        return appliedForce / 3;
 	    } else {
-	        double kineticFrictionForce = normalForce * surface.getKineticFrictionCoefficient();
 	        return kineticFrictionForce * Math.signum(appliedForce);
 	    }
 	}
 
-	
+	@Override
 	public double calculateAngularAcceleration(Surface surface) {
-        // Calculate torque
+        // Tính torque
         double torque = this.calculateFrictionForce(surface) * this.radius;
 
-        // Calculate angular acceleration
+        // calculating the angular acceleration
         return torque / (this.getMass() * this.radius * this.radius/2);
     }
+
+	@Override
+	public String getDimensionName() {
+		return "radius";
+	}
+
+	@Override
+	public double getDimension() {
+		return radius;
+	}
+
+	@Override
+	public void setDimension(double radius) {
+		this.radius = radius;		
+	}
+
+
+	@Override
+	public double getMaxDimension() {
+		// TODO Auto-generated method stub
+		return 50;
+	}
 	
 	
 
