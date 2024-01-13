@@ -9,14 +9,14 @@ public class PhysicsSimulation extends Application {
 
 	@Override
 	public void start(Stage stage) throws Exception {
-	    FXMLLoader loader = new FXMLLoader(getClass().getResource("view/MainView.fxml"));
+	    FXMLLoader loader = new FXMLLoader(getClass().getResource("view/SimulationView.fxml"));
 	    Parent root = loader.load();
 
 	    Scene scene = new Scene(root);
 	    stage.setTitle("Physics Simulation");
 	    stage.setScene(scene);
 
-	    // Make the window not resizable
+	    // remove fullscreen function because it's not implemented 
 	    stage.setResizable(false);
 
 	    stage.show();
