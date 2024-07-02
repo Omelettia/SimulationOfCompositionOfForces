@@ -11,22 +11,22 @@
    <children>
       <ImageView fx:id="road" fitHeight="69.0" fitWidth="1307.0" layoutY="240.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Downloads/Car_Animation_Img/road.jpg" />
+            <Image url="@../image/road.jpg" />
          </image>
       </ImageView>
       <ImageView fx:id="object" fitHeight="150.0" fitWidth="200.0" layoutX="150.0" layoutY="118.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../8e3f220c59c4f926ebb2e94000c86e13-1174630174.png" />
+            <Image url="@../image/PlaceHolder.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cylinder" fitHeight="70.0" fitWidth="90.0" layoutX="38.0" layoutY="330.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Downloads/5bce7d5c70a9d74a1ede4ab315aa42a1-wood-wagon-wheel-flat-477602131.png" />
+            <Image url="@../image/cylinder.png" />
          </image>
       </ImageView>
       <ImageView fx:id="cube" fitHeight="70.0" fitWidth="90.0" layoutX="159.0" layoutY="330.0" preserveRatio="true">
          <image>
-            <Image url="@../../../../../../Downloads/bd2d7a8d7a149c5-2866815457.png" />
+            <Image url="@../image/Cube.png" />
          </image>
       </ImageView>
       <HBox layoutX="468.0" layoutY="209.0" prefHeight="31.0" prefWidth="132.0">
